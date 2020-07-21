@@ -35,6 +35,9 @@ class Atividades(Base):
     pessoa_id = Column(Integer, ForeignKey('pessoas.id'))
     pessoa = relationship("Pessoas")
 
+    def __repr__(self):
+        return '<Atividades {}>'.format(self.nome)
+
     def save(self):
         db_session.add(self)
         db_session.commit()
